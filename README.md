@@ -34,7 +34,7 @@ $this->post->delete(1);
 
 安装/使用
 ------------------
-下载MY\_Model.php文件, 放到项目的_application/core_文件夹中.
+下载MY\_Model.php文件, 放到项目的 _application/core_ 文件夹中.
 CodeIgniter会自动载入并初始化.
 
 让你的model类继承`MY_Model`, 所有的方法就能使用了.
@@ -54,14 +54,14 @@ CodeIgniter会自动载入并初始化.
 
 …猜出的表名是 `books`.
 
-如果你需要设置自己的表名, 可以在类中定义 _$\_table_ 属性 初始化为你希望设置的表名:
+如果你需要设置自己的表名, 可以在类中定义 _$\_table_ 属性初始化为你希望设置的表名:
 
     class Post_model extends MY_Model
     {
         public $_table = 'blogposts';
     }
 
-有一些 CURD 函数还会假设你的数据表主键的列名为_'id'_. 你可以通过为类增加_$primary\_key_属性覆盖掉默认值:
+有一些 CURD 函数还会假设你的数据表主键的列名为 _'id'_ . 你可以通过为类增加 _$primary\_key_ 属性覆盖掉默认值:
 
     class Post_model extends MY_Model
     {
@@ -116,9 +116,7 @@ class Book_model extends MY_Model
 验证
 ----------
 MY_Model使用CodeIgniter的内置表单验证系统验证数据插入.
-
-你可以通过设置 `$validate` 实例数组, 开启表单验证.
-:
+你可以通过设置 `$validate` 实例数组, 开启表单验证:
 
     class User_model extends MY_Model
     {
@@ -212,8 +210,6 @@ Protected 属性
 查询(queries)会分别执行去获取数据, 如果性能很重要, 那么建议使用独立的JOIN 和 SELECT调用.
 你也可以设置主键. 对于 _belongs\_to_ 调用, 关联字段在当前的对象上而不是其他对象, 伪代码:
 
-The primary key can also be configured. For _belongs\_to_ calls, the related key is on the current object, not the foreign one. Pseudocode:
-
     SELECT * FROM authors WHERE id = $post->author_id
 
 ...而对于一个 _has\_many_ 请求则是这样的:
@@ -278,10 +274,8 @@ The primary key can also be configured. For _belongs\_to_ calls, the related key
 
 内置的观察者
 -------------------
-
-**MY_Model** contains a few built-in observers for things I've found I've added to most of my models.
-
-The timestamps (MySQL compatible) `created_at` and `updated_at` are now available as built-in observers:
+**MY_Model**  包含一些我发现,加入到我大多数models中的内置的观察者.
+时间戳 (MySQL 兼容) `created_at` 和 `updated_at` 现在就是内置的观察者:
 
     class Post_model extends MY_Model
     {
@@ -289,7 +283,8 @@ The timestamps (MySQL compatible) `created_at` and `updated_at` are now availabl
         public $before_update = array( 'updated_at' );
     }
 
-**MY_Model** also contains serialisation observers for serialising and unserialising native PHP objects. This allows you to pass complex structures like arrays and objects into rows and have it be serialised automatically in the background. Call the `serialize` and `unserialize` observers with the column name(s) as a parameter:
+**MY_Model** 还为原生的PHP对象的序列化和反序列增加了序列化观察者.
+这样可以传递想数组和对象这样复杂的结构到自动序列化存储到数据库中, 将 `serialize` 和 `unserialize` 作为参数交给观察者调用:
 
     class Event_model extends MY_Model
     {
