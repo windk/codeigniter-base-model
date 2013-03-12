@@ -2,6 +2,9 @@ codeigniter-base-model
 =====================================
 
 [![Build Status](https://secure.travis-ci.org/jamierumbelow/codeigniter-base-model.png?branch=master)](http://travis-ci.org/jamierumbelow/codeigniter-base-model)
+注:目前仅仅是中文的README.md的翻译.
+
+CodeIgniter Base Model 是 可以用于你的应用中的 CI_Model 类的扩展. 为你提供完整, 基本的CURD, 让你数据库交互更加简单快捷, 基于事件观察者的系统 model内的数据验证, 智能数据库表名猜测和软删除(soft delete).
 
 My CodeIgniter Base Model is an extended CI_Model class to use in your CodeIgniter applications. It provides a full CRUD base to make developing database interactions easier and quicker, as well as an event-based observer system, in-model data validation, intelligent table name guessing and soft delete.
 
